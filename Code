@@ -1,0 +1,60 @@
+#include <stdio.h>
+int i,sum;
+void main() {
+    struct date {
+      int day;
+      int month;
+      int year;
+      };  
+
+    struct details {
+      int code;
+      char name[20];
+      int qty;
+      int price;
+      struct date mf;
+      };
+
+    struct details item[40];
+        int n, i;
+        printf("--------------------------------------------\n");
+        printf("      Welcome to Store Billing Manager\n");
+        printf("--------------------------------------------\n");
+        printf("Enter purchase details below\n");
+        printf("\n");
+        printf("Enter the number of items:");
+        scanf("%d", &n);
+        for (i = 0; i < n; i++) {
+            printf("Item code:");
+            scanf("%d", &item[i].code);
+            printf("Item name:");
+            scanf("%s", item[i].name);
+            printf("Quantity:");
+            scanf("%d", &item[i].qty);
+            printf("price:");
+            scanf("%d", &item[i].price);
+            printf("Purchase date(dd-mm-yyyy):");
+            scanf("%d-%d-%d", &item[i].mf.day, &item[i].mf.month, &item[i].mf.year);
+        
+        }
+    printf("\n");
+    printf("\n------------------------------------------------------------------");
+    printf("\n");
+
+    printf("****************************   BILL   ****************************\n");
+    printf("------------------------------------------------------------------\n");
+    printf(" SNo.| NAME | ITEM CODE | QUANTITY | PRICE | DATE OF PURCHASE\n");
+    printf("------------------------------------------------------------------\n");
+    for (i = 0; i < n; i++)
+        printf("  %d   %s     %d       %d        %d       %d /%d /%d \n", i + 1,item[i].name, item[i].code, item[i].qty, item[i].price,item[i].mf.day, item[i].mf.month, item[i].mf.year);
+    for (i = 0; i < n; i++){
+        sum = sum + item[i].price;
+        }
+    printf("\n");
+    printf("    Your Grand Total Is = %d",sum);
+    printf("\n");
+    printf("------------------------------------------------------------------\n");
+    printf("******************** THANKYOU FOR YOUR VISIT ********************\n");
+    printf("------------------------------------------------------------------\n");
+  
+}
